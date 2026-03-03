@@ -1,5 +1,6 @@
 // Importamos la clase Scanner del paquete java.util
 // Scanner nos permite leer datos que el usuario introduce por teclado.
+import java.sql.SQLOutput;
 import java.util.Scanner;
 
 // Declaración de la clase principal.
@@ -75,6 +76,8 @@ public class Sesion_1 {
 
         // Volvemos a usar el método sobrecargado con el nombre ingresado.
         saludar(nombre);
+
+
     }
 
 
