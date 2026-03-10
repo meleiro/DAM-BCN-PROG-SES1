@@ -71,7 +71,6 @@ public class Sesion_1 {
     // Variables de tipo String
     // String es una clase que representa cadenas de texto.
     static String nombre;
-    static String apellido;
 
     // Variable entera
     // int almacena números enteros sin decimales.
