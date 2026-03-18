@@ -109,14 +109,81 @@ public class Sesion_1 {
        main(): punto de entrada del programa
        ========================================================= */
     public static void main(String[] args) {
-
+        /*
         // 1) ENTRADA
         leerDatos();
 
         // 2) PROCESAMIENTO: cálculo de media
         double media = calcularMedia(nota1, nota2);
 
+        boolean aprobado = esAprobado(media);
 
+        double precioFinal = calcularPrecioFinal(PRECIO_BASE);
+
+        imprimirInforme(media, aprobado, precioFinal);
+
+        sc.close();
+
+         */
+        mostrarDiaSemana(1);
+        mostrarDiaSemana(2);
+        mostrarDiaSemana(4);
+
+        mostrarTipoDia(1);
+        mostrarTipoDia(6);
+        mostrarTipoDia(12);
+
+    }
+
+
+    static void mostrarDiaSemana (int dia){
+
+        switch (dia){
+            case 1:
+                System.out.println("Lunes");
+                break;
+            case 2:
+                System.out.println("Martes");
+                break;
+            case 3:
+                System.out.println("Miércoles");
+                break;
+            default:
+                System.out.println("Día no válido");
+
+        }
+
+    }
+
+    static void mostrarTipoDia(int dia){
+
+        switch (dia){
+            case 1:
+            case 2:
+            case 3:
+            case 4:
+            case 5:
+                System.out.println("Día Laborable");
+                break;
+            case 6:
+            case 7:
+                System.out.println("Fin de semana");
+                break;
+            default:
+                System.out.println("Día no válido");
+
+
+        }
+
+
+
+
+    }
+
+
+
+    static boolean esAprobado(double nota){
+        return nota >= NOTA_APROBADO;
     }
 
     /* =====================================================
@@ -471,6 +538,70 @@ public class Sesion_1 {
 
 
 
+    static double calcularPrecioFinal (double base){
+
+        double descuento = 0.0;
+        double recargo = 0.0;
+
+        if (familiaNumerosa){
+            descuento +=  DESC_FAMILIA_NUM;
+        }
+
+        if (edad < 18) {
+            descuento += DESC_MENOR_EDAD;
+        } else if (edad > 65){
+            descuento += DESC_MAYOR_65;
+        }
+
+        if (descuento > DESC_MAX){
+            descuento = DESC_MAX;
+        }
+
+        double importeDescuento = base * descuento;
+
+        double precioConDescuento = base - importeDescuento;
+
+        if ( pagoFraccionado && base>=500  ) {
+            recargo = RECARGO_FRACCIONADO_ALTO;
+        } else if (pagoFraccionado) {
+            recargo = RECARGO_FRACCIONADO_BAJO;
+        }
+
+        double subtotal = precioConDescuento + recargo;
+
+        double importeIva = subtotal * IVA;
+
+        double precioFinal = subtotal + importeIva;
+
+        return precioFinal;
+
+    }
+
+    static void imprimirInforme ( double media, boolean aprobado, double precioFinal) {
+
+        System.out.println("\n---INFORME---");
+        System.out.printf("Alumno: " + nombre);
+        System.out.printf("Edad: " + edad);
+
+        if (familiaNumerosa) {
+            System.out.println("Familia numerosa: Sí");
+        } else {
+            System.out.println("Familia numerosa: No");
+        }
+
+        if (aprobado) {
+            System.out.println("Estado: APTO");
+        } else {
+            System.out.println("Estado: NO APTO");
+        }
+
+        String textoFraccionado = (pagoFraccionado) ? "Sí" : "No";
+
+        System.out.println("Pago Fraccionado: " + textoFraccionado );
+
+        System.out.printf("Media: %.2f%n", media);
+        System.out.printf("Precio Final: %.2f €%n", precioFinal);
+    }
 
 
 
