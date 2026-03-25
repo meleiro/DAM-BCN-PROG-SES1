@@ -1,4 +1,3 @@
-import java.sql.SQLOutput;
 import java.util.Scanner;
 
 /**
@@ -24,16 +23,6 @@ import java.util.Scanner;
  * 13) Conversión implícita y explícita entre tipos
  * 14) Impresión formateada con printf
  *
- * ------------------------------------------------------------
- * NOTA IMPORTANTE SOBRE LOS IMPORTS
- * ------------------------------------------------------------
- * - Scanner sí se usa en el programa.
- * - SQLOutput está importado, pero en este código NO se usa.
- *   Por tanto, podría eliminarse sin problema.
- *
- * Es decir, esta línea:
- *     import java.sql.SQLOutput;
- * no aporta nada en este programa.
  */
 public class Sesion_1 {
 
@@ -554,11 +543,6 @@ public class Sesion_1 {
         System.out.println("int valorMetodo = 10;");
         System.out.println("Llamada: imprimirNumero(valorMetodo);");
 
-        // OJO:
-        // Aquí en tu código solo se imprime el texto,
-        // pero no se hace realmente la llamada.
-        // Faltaría:
-        // imprimirNumero(valorMetodo);
 
         float numeroFloat = 3.5f;
         double resultadoFloatADouble = numeroFloat;
@@ -715,9 +699,7 @@ public class Sesion_1 {
 
         System.out.println("\n---INFORME---");
 
-        // OJO:
-        // Aquí estás usando printf, pero sin formato especial.
-        // También podrías haber usado println.
+        
         System.out.printf("Alumno: " + nombre);
         System.out.printf("Edad: " + edad);
 
